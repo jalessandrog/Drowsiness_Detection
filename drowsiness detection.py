@@ -6,6 +6,8 @@ from pygame import mixer
 import time
 mixer.init()
 sound = mixer.Sound('S1.wav')
+sound.set_volume(0.1)
+mixer.set_num_channels(1)
 
 
 face = cv2.CascadeClassifier('haar cascade files\haarcascade_frontalface_alt.xml')
@@ -89,6 +91,7 @@ while(True):
     if(score2>10):
         score=0  
         score2=0
+        mixer.stop()
     
     if(score<0):
         score=0   
@@ -103,7 +106,7 @@ while(True):
         try:
             sound.play()
         except: # isplaying = False
-            pass        
+            pass     
 
 
         if(thicc<16):
