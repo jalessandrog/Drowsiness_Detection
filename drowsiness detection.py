@@ -89,7 +89,7 @@ while(True):
     
     if(score<0):
         score=0   
-    cv2.putText(frame,'Time in seconds:'+str(score),(100,height-20), font, 1,(255,255,255),1,cv2.LINE_AA)
+    cv2.putText(frame,'Time in seconds:'+str(score),(200,height-20), font, 1,(255,255,255),1,cv2.LINE_AA)
     #cv2.putText(frame,'Score2:'+str(score2),(200,height-200), font, 1,(255,255,255),1,cv2.LINE_AA)
     
     if(score>10):
