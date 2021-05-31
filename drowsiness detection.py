@@ -72,12 +72,12 @@ while(True):
     if(rpred[0]==0 and lpred[0]==0):
         score=score+1
         score2=score2-1
-        cv2.putText(frame,"Closed",(10,height-450), font, 2,(0,0,255),1,cv2.LINE_AA)
+        cv2.putText(frame,"Closed",(10,height-420), font, 2,(0,0,255),1,cv2.LINE_AA)
     
     else:
         score=score-1
         score2=score2+1
-        cv2.putText(frame,"Open",(10,height-450), font, 2,(0,255,0),1,cv2.LINE_AA)
+        cv2.putText(frame,"Open",(10,height-420), font, 2,(0,255,0),1,cv2.LINE_AA)
 
         
     if(score2<0):
