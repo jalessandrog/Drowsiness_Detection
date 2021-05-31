@@ -2,6 +2,10 @@ import cv2
 import os
 from tensorflow.keras.models import load_model
 import numpy as np
+from pygame import mixer
+import time
+mixer.init()
+sound = mixer.Sound('S1.wav')
 
 
 face = cv2.CascadeClassifier('haar cascade files\haarcascade_frontalface_alt.xml')
@@ -34,7 +38,6 @@ while(True):
     left_eye = leye.detectMultiScale(gray)
     right_eye =  reye.detectMultiScale(gray)
 
-    cv2.rectangle(frame, (0,height-50) , (200,height) , (0,0,0) , thickness=cv2.FILLED )
 
     for (x,y,w,h) in faces:
         cv2.rectangle(frame, (x,y) , (x+w,y+h) , (100,100,100) , 1 )
@@ -97,6 +100,11 @@ while(True):
         if((score % 2) == 0):
             cv2.putText(frame,'ALERT',(260,height-250), peligro, 1,(0,0,255),1,cv2.LINE_AA)
             cv2.putText(frame,'sleeping driver danger',(100,height-200), peligro, 1,(0,0,255),1,cv2.LINE_AA)
+        try:
+            sound.play()
+        except: # isplaying = False
+            pass        
+
 
         if(thicc<16):
             thicc= thicc+2
