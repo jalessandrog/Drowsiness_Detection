@@ -94,8 +94,9 @@ while(True):
     
     if(score>10):
         cv2.imwrite(os.path.join(path,'image.jpg'),frame)
-        cv2.putText(frame,'ALERT',(260,height-250), peligro, 1,(0,0,255),1,cv2.LINE_AA)
-        cv2.putText(frame,'sleeping driver danger',(100,height-200), peligro, 1,(0,0,255),1,cv2.LINE_AA)
+        if((score % 2) == 0):
+            cv2.putText(frame,'ALERT',(260,height-250), peligro, 1,(0,0,255),1,cv2.LINE_AA)
+            cv2.putText(frame,'sleeping driver danger',(100,height-200), peligro, 1,(0,0,255),1,cv2.LINE_AA)
 
         if(thicc<16):
             thicc= thicc+2
